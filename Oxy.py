@@ -2,13 +2,16 @@ import discord
 from discord.ext import commands, tasks
 
 # Ваш токен бота
-TOKEN = 'ваш_токен_бота'
+TOKEN = 'MTIxNDY5NDIwNDk5MTYwNjkyNQ.GRxE35.ox9CqE0fVbDCdYwdkbf4xrRsFiNz-YLUwHzXQc'
 
 # Префикс для команд бота
 PREFIX = '!'
 
 # Создаем объект клиента
-bot = commands.Bot(command_prefix=PREFIX)
+intents = discord.Intents.default()
+intents.messages = True
+intents.guilds = True
+bot = commands.Bot(command_prefix=PREFIX, intents=intents)
 
 # Функция для отправки новости в виде embed
 async def send_news(channel_id, news_content):
@@ -34,3 +37,4 @@ async def on_ready():
 
 # Запускаем бота
 bot.run(TOKEN)
+
